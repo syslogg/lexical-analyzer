@@ -3,17 +3,15 @@ from app.handler.remove_comments_handler import RemoveCommentsHandler
 from app.handler.tokenize_handler import TokenizeHandler
 from app.handler import Handler
 
+import pandas as pd
+
 def client_code(handle: Handler):
     with open("input.txt") as f:
         inputData = f.read()
-        print(handle.handle(inputData))
-
-
-
+        print(pd.DataFrame(handle.handle(inputData)))
 
 def main():
     
-
     remove_comments = RemoveCommentsHandler()
     check_eol = CheckEOLHandler()
     tokenize = TokenizeHandler()
